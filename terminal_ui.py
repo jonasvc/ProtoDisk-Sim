@@ -45,8 +45,8 @@ def print_banner(mode, name, category, timestamp):
 
 
 def print_success(message):
-    """Print success message with checkmark"""
-    console.print(f"[green]✓[/green] {message}")
+    """Print success message with checkmark in bright neon green"""
+    console.print(f"[bold bright_green]✓[/bold bright_green] [bright_green]{message}[/bright_green]")
 
 
 def print_warning(message):
@@ -178,7 +178,8 @@ class AdvancedPhaseTracker:
         if "[" in message and "]" not in message:
             message = message.replace("[", "\\[")
             
-        self.progress.console.print(f"  [dim]{message}[/dim]")
+        # Print without dim - let RADMC output be readable
+        self.progress.console.print(f"  {message}")
 
     def set_phase_total(self, total_steps):
         """Sets maximum for current phase (e.g., total photons)"""
@@ -204,7 +205,7 @@ class AdvancedPhaseTracker:
         self.progress.reset(self.phase_task)
         self.progress.update(self.phase_task, description=desc, total=None, visible=True)
         
-        self.log(f"[bold cyan]→[/bold cyan] Starting: [bold]{phase_name}[/bold]")
+        self.log(f"[bold bright_green]→[/bold bright_green] Starting: [bold bright_green]{phase_name}[/bold bright_green]")
 
     def complete_phase(self, phase_name):
         """Complete current phase"""
@@ -212,7 +213,7 @@ class AdvancedPhaseTracker:
             duration = time.time() - self.phase_start_time
             self.phase_times[phase_name] = duration
             duration_str = f"{int(duration)}s"
-            self.log(f"[green]✓[/green] Done: [bold]{phase_name}[/bold] ({duration_str})")
+            self.log(f"[bold bright_green]✓[/bold bright_green] Done: [bold]{phase_name}[/bold] [bright_green]({duration_str})[/bright_green]")
         
         self.progress.update(self.overall_task, completed=self.current_phase_idx + 1)
         self.progress.update(self.phase_task, completed=100)
