@@ -1,0 +1,59 @@
+# ===========================================================================
+# RADMC-3D Simulation Pipeline - Python Dependencies
+# ===========================================================================
+# 
+# This file lists all required Python packages for the RADMC-3D simulation
+# pipeline including data analysis, visualization, and UI components.
+#
+# Installation:
+#   pip install -r requirements.txt
+#
+# ATTENTION:
+# YOU HAVE TO INSTALL RADMC with RADMC3DPy first from 
+# https://github.com/dullemond/radmc3d-2.0 first (With corresponding paths)
+
+# Core scientific computing
+numpy>=1.20.0
+scipy>=1.7.0
+
+# Data handling and logging
+pandas>=1.3.0
+openpyxl>=3.0.0              # Excel file support for logbook
+
+# Visualization
+matplotlib>=3.4.0
+
+# Terminal UI / Progress bars
+rich>=10.0.0                 # Advanced terminal UI with progress bars
+psutil>=5.8.0                # System resource monitoring
+
+# File locking for concurrent batch runs
+filelock>=3.0.0
+
+# RADMC-3D Python interface
+# Note: radmc3dPy is typically installed from source
+# Clone from: https://github.com/dullemond/radmc3d-2.0
+# Then: pip install -e /path/to/radmc3dPy
+# OR if available via pip:
+# radmc3dPy>=2.0
+
+# ===========================================================================
+# Optional packages (recommended)
+# ===========================================================================
+
+# For improved performance
+# numba>=0.54.0              # JIT compilation for numerical code
+
+# For interactive notebooks
+# jupyter>=1.0.0
+# ipython>=7.0.0
+
+# ===========================================================================
+# System requirements
+# ===========================================================================
+# 
+# - RADMC-3D executable must be installed and in PATH
+# - Fortran compiler (for RADMC-3D compilation)
+# - OpenMP support (for parallel photon calculations)
+# -> See the RADMC3D Documentary for those
+# ===========================================================================
